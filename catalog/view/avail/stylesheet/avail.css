@@ -1,0 +1,31 @@
+.center { 
+	text-align:center
+}
+.center > input[type="text"] {
+	width: 350px;
+	display: inline-block;
+	text-align:center;
+}
+.center > textarea {
+	width: 350px;
+	display: inline-block;
+	text-align:left;
+}
+.form-horizontal .has-feedback .form-control-feedback {
+    right: 122px;
+}
+.has-feedback label~.form-control-feedback {
+    top: 38px;
+}
+.notify {
+	width: 60%;
+    border: none;
+    display: inline-block;
+    float: left;
+    background-color: #eee;
+    color: #888;
+    line-height: 38px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+}

@@ -1,0 +1,126 @@
+<modification>
+	<id><![CDATA[OpenCart 2.3 Compatibility Fixes]]></id>
+	<version><![CDATA[2.0.5]]></version>
+	<vqmver><![CDATA[2.1.5]]></vqmver>
+	<author><![CDATA[The Krotek]]></author>
+	
+	<!-- Admin: Extensions -->
+
+	<file path="admin/controller/extension/extension/" name="dashboard.php,feed.php,fraud.php,module.php,payment.php,shipping.php,theme.php,total.php">
+		<operation>
+			<search position="before"><![CDATA[$this->load->controller('extension]]></search>
+			<add><![CDATA[
+			
+			$type = strtolower(str_replace('ControllerExtensionExtension', '', __CLASS__));
+
+			if (__FUNCTION__ == 'install') {
+				$this->model_user_user_group->addPermission($this->user->getGroupId(), 'access', $type.'/'.$this->request->get['extension']);
+				$this->model_user_user_group->addPermission($this->user->getGroupId(), 'modify', $type.'/'.$this->request->get['extension']);
+			}
+
+			$this->load->controller($type.'/'.$this->request->get['extension'].'/'.__FUNCTION__);
+			
+			]]></add>
+		</operation>
+		<operation>
+			<search position="before"><![CDATA[$this->response->setOutput($this->load->view('extension/extension]]></search>
+			<add><![CDATA[
+			
+			$data['extensions'] = array_unique($data['extensions'], SORT_REGULAR);
+			
+			usort($data['extensions'], function($a, $b){ return strcmp($a["name"], $b["name"]); });
+			
+			]]></add>
+		</operation>			
+	</file>
+	
+	<!-- Admin: Compatibility -->
+
+	<file name="admin/controller/event/compatibility.php">
+		<operation>
+			<search position="after" index="2"><![CDATA[$route = $part[1] . '/' . $part[2];]]></search>
+			<add><![CDATA[
+			
+			$part = explode('/', $route);
+			$directories = array($this->config->get('config_admin_language'), $this->language->default, 'english');
+		
+			foreach ($directories as $directory) {
+				if (!is_file(DIR_LANGUAGE.$directory.'/'.$route.'.php') && is_file(DIR_LANGUAGE.$directory.'/'.$part[1].'/'.$part[2].'.php')) {
+					$route = $part[1].'/'.$part[2];
+					break;
+				}
+ 			}
+			
+			]]></add>
+		</operation>
+	</file>
+		
+	<!-- System: Language -->
+
+	<file name="system/library/language.php">
+		<operation>
+			<search position="replace"><![CDATA[private $default = 'en-gb';]]></search>
+			<add><![CDATA[
+			
+			public $default = 'en-gb';
+			
+			]]></add>
+		</operation>
+	</file>
+		
+	<!-- System: Config -->
+
+	<file name="system/config/catalog.php">
+		<operation>
+			<search position="after"><![CDATA[$_['action_event'] = array(]]></search>
+			<add><![CDATA[
+			
+			'controller/extension/analytics/*/before' => 'event/compatibility/controller',
+			'controller/extension/captcha/*/before'   => 'event/compatibility/controller',
+			'controller/extension/feed/*/before'      => 'event/compatibility/controller',
+			'controller/extension/fraud/*/before'     => 'event/compatibility/controller',
+			'controller/extension/module/*/before'    => 'event/compatibility/controller',
+			'controller/extension/payment/*/before'   => 'event/compatibility/controller',
+			'controller/extension/recurring/*/before' => 'event/compatibility/controller',
+			'controller/extension/shipping/*/before'  => 'event/compatibility/controller',
+			'controller/extension/theme/*/before'     => 'event/compatibility/controller',
+			'controller/extension/total/*/before'     => 'event/compatibility/controller',
+			
+			]]></add>
+		</operation>
+	</file>
+	
+	<!-- Catalog: Checkout -->
+	
+	<file name="catalog/controller/checkout/cart.php">
+		<operation>
+			<search position="before"><![CDATA[if ($files) {]]></search>
+			<add><![CDATA[
+			
+			$files = array_merge($files, glob(DIR_APPLICATION.'controller/total/*.php'));
+			
+			]]></add>
+		</operation>
+		<operation>
+			<search position="after"><![CDATA[if ($files) {]]></search>
+			<add><![CDATA[
+			
+			$modules = array();
+			
+			]]></add>
+		</operation>			
+		<operation>
+			<search position="before"><![CDATA[if ($result) {]]></search>
+			<add><![CDATA[
+			
+				$modules[] = basename($file, '.php');
+			}
+
+			foreach (array_unique($modules) as $module) {
+				$result = $this->load->controller('extension/total/'.$module);
+			
+			]]></add>
+		</operation>		
+	</file>
+				
+</modification>

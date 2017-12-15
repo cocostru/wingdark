@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+  <name>Add To Cart Redirect</name>
+  <code>add_to_cart_redirect</code>
+  <version>1.0</version>
+  <author>N2R Technologies</author>
+  <link>http://www.n2rtechnologies.com</link>
+
+  <file path="catalog/view/theme/*/template/common/header.tpl">
+    <operation>
+      <search><![CDATA[</head>]]></search>
+      <add position="before"><![CDATA[
+        <script>
+          cart.add = function(product_id, quantity) {
+              $.ajax({
+      url: 'index.php?route=checkout/cart/add',
+      type: 'post',
+      data: 'product_id=' + product_id + '&quantity=' + (typeof(quantity) != 'undefined' ? quantity : 1),
+      dataType: 'json',
+      beforeSend: function() {
+        $('#cart > button').button('loading');
+      },
+      complete: function() {
+        $('#cart > button').button('reset');
+      },
+      success: function(json) {
+        $('.alert, .text-danger').remove();
+
+        if (json['redirect']) {
+          location = json['redirect'];
+        }
+
+        if (json['success']) {
+          $('#content').parent().before('<div class="alert alert-success"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+
+          // Need to set timeout otherwise it wont update the total
+          setTimeout(function () {
+            $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+          }, 100);
+
+          <?php if($redirect_link){ ?>
+          location = '<?php echo $redirect_link; ?>';
+          <?php }else{ ?>
+          $('html, body').animate({ scrollTop: 0 }, 'slow');
+          <?php } ?>
+
+          $('#cart > ul').load('index.php?route=common/cart/info ul li');
+        }
+      },
+      error: function(xhr, ajaxOptions, thrownError) {
+        alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+      }
+    });
+          };
+        </script>
+      ]]></add>
+    </operation>
+  </file>
+  <file path="catalog/controller/common/header.php">
+    <operation>
+      <search><![CDATA[$data['base'] = $server;]]></search>
+      <add position="before"><![CDATA[
+        if($this->config->get('addcartredirect_status')){
+          $data['redirect_link'] = $this->url->link($this->config->get('addcartredirect_link'), '', true);
+        }else{
+          $data['redirect_link'] = false;
+        }
+        ]]></add>
+    </operation>
+  </file> 
+  <file path="catalog/controller/product/product.php">
+    <operation>
+      <search><![CDATA[$this->load->model('catalog/category');]]></search>
+      <add position="before"><![CDATA[
+       if($this->config->get('addcartredirect_status')){
+          $data['redirect_link'] = $this->url->link($this->config->get('addcartredirect_link'), '', true);
+        }else{
+          $data['redirect_link'] = false;
+        }
+        ]]></add>
+    </operation>
+  </file> 
+  <file path="catalog/view/theme/*/template/product/product.tpl">
+    <operation>
+      <search><![CDATA[$('html, body').animate({ scrollTop: 0 }, 'slow');]]></search>
+      <add position="replace"><![CDATA[
+        <?php if($redirect_link){ ?>
+          location = '<?php echo $redirect_link; ?>';
+          <?php }else{ ?>
+          $('html, body').animate({ scrollTop: 0 }, 'slow');
+          <?php } ?>
+        ]]></add>
+    </operation>
+  </file>  
+
+</modification>

@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <link rel="icon" href="../../favicon.ico">
+      <title>Товар Мульти магазин</title>
+      <link href="css/bootstrap.css" rel="stylesheet">
+      <link href="css/bootstrap-navbar.css" rel="stylesheet">
+      <link rel="stylesheet" href="css/owl.carousel.css">
+      <link href="css/owl.theme.css" rel="stylesheet">
+      <link href="font-awesome-4.4.0/css/font-awesome.css" rel="stylesheet">
+      <link href="css/style.css" rel="stylesheet">
+            <link href="css/fuelux.min.css" rel="stylesheet">
+
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+   </head>
+   <body class="fuelux">
+<!--       <div class="head-line">
+         <div class="container-fluid">
+            <div class="links">
+               <span><img src="img/i14.png" alt=""><a href=""> Регион: Москва</a></span>
+               <span><a href="">Доставка и оплата</a></span>
+               <span><a href="">Реклама на сайте</a></span>
+               <span>Ждём ваших звонков с 05:00 до 22:00 по московскому времени 8 (495) 123-456-78</span>
+               <div class="pull-right">
+                  <img src="img/i15.png" alt=""> <a href="">Ваш кабинет</a>
+               </div>
+            </div>
+         </div>
+      </div> -->
+      <div class="body-wrap">
+         <header>
+            <div class="row">
+               <div class="col-lg-3">
+                  <div class="logo">
+                     <div class="row">
+                        <div class="col-xs-3">
+                           <img class="img-responsive" src="img/logo.svg" alt="">
+                        </div>
+                        <div class="col-xs-9">
+                           <h2>500sales.ru</h2>
+                           <p>все российский центр распродаж.</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-7">
+                  <div class="search-box">
+                     <form class="form-inline" role="form" id="yourformID-form" action="" method="post">
+                        <div class="input-group">
+                           <div class="form-group">
+                              <select class="form-control cat-select" name="category">
+                                 <option value="">Укажите категорию</option>
+                                 <option value="0">select1</option>
+                                 <option value="1">select2</option>
+                                 <option value="2">select3</option>
+                              </select>
+                           </div>
+                           <div class="form-group">
+                              <input size="60" maxlength="260" class="form-control cat-ser" name="q" placeholder="Поиск по сайту" type="text">          
+                           </div>
+                           <div class="form-group">
+                              <a class="btn btn-search" href=""> <i class="glyphicon glyphicon-search"></i></a>          
+                           </div>
+                        </div>
+                     </form>
+                  </div>
+                  <div class="link-search">
+                     <i class="glyphicon glyphicon-paperclip"></i> <a href="">Отложенные товары (14) </a>
+                     <i class="glyphicon glyphicon-cog"></i> <a href="">Сравнение товаров (20)</a>
+                     <div class="pull-right">
+                        <i class="glyphicon glyphicon-send"></i> <a href="">Обратная связь</a>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-2">
+                  <div class="cart">
+                     <div class="row">
+                        <div class="col-xs-4">
+                           <img class="img-responsive crt" src="img/cart.svg" alt="">
+                        </div>
+                        <div class="col-xs-8">
+                           <h4>Ваша корзина</h4>
+                           <div class="sub-cart">
+                              Сумма: <span>2500 руб</span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </header>
+      </div>
+      <nav class="navbar">
+         <div class="container-fluid">
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target="#navbar">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               </button>
+            </div>
+            <div id="navbar" class="navbar-offcanvas" data-direction="left">
+               <button type="button" class="hidden-sm hidden-md hidden-lg" data-toggle="offcanvas" data-target="#navbar">
+               &#10005;
+               </button>
+               <ul class="nav navbar-nav">
+                  <li class="dropdown dropdown-megamenu">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                     Бытовая техника <span class="caret"></span></a>
+                     <ul class="dropdown-menu">
+                        <li>
+                           <div class="megamenu">
+                              <div class="megamenu-lists">
+                                 <ul class="megamenu-list list-col-4">
+                                    <li class="megamenu-list-title"><a href="#">
+                                       <img class="img-cat" src="img/i1.png" alt="">
+                                       Техника для кухни</a>
+                                    </li>
+                                    <li><a href="#">Кофеварки и кофемашины</a></li>
+                                    <li><a href="#">Чайники электрические</a></li>
+                                    <li><a href="#">Микроволновые печи</a></li>
+                                    <li><a href="#">Пароварки</a></li>
+                                    <li><a href="#">Очистители и увлажнители воздуха</a></li>
+                                 </ul>
+                                 <ul class="megamenu-list list-col-4">
+                                    <li class="megamenu-list-title"><a href="#">
+                                       <img class="img-cat" src="img/i2.png" alt="">
+                                       Климатическое оборудование</a>
+                                    </li>
+                                    <li><a href="#">Кофеварки и кофемашины</a></li>
+                                    <li><a href="#">Чайники электрические</a></li>
+                                    <li><a href="#">Микроволновые печи</a></li>
+                                    <li><a href="#">Пароварки</a></li>
+                                    <li><a href="#">Очистители и увлажнители воздуха</a></li>
+                                 </ul>
+                                 <ul class="megamenu-list list-col-4">
+                                    <li class="megamenu-list-title"><a href="#">
+                                       <img class="img-cat" src="img/i2.png" alt="">
+                                       Техника для дома</a>
+                                    </li>
+                                    <li><a href="#">Кофеварки и кофемашины</a></li>
+                                    <li><a href="#">Чайники электрические</a></li>
+                                    <li><a href="#">Микроволновые печи</a></li>
+                                    <li><a href="#">Пароварки</a></li>
+                                    <li><a href="#">Очистители и увлажнители воздуха</a></li>
+                                 </ul>
+                                 <ul class="megamenu-list list-col-4">
+                                    <li class="megamenu-list-title"><a href="#">
+                                       <img class="img-cat" src="img/i1.png" alt="">
+                                       Встариваемая</a>
+                                    </li>
+                                    <li><a href="#">Кофеварки и кофемашины</a></li>
+                                    <li><a href="#">Чайники электрические</a></li>
+                                    <li><a href="#">Микроволновые печи</a></li>
+                                    <li><a href="#">Пароварки</a></li>
+                                    <li><a href="#">Очистители и увлажнители воздуха</a></li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </li>
+                     </ul>
+                  </li>
+                  <li><a href="#">Электроника</a></li>
+                  <li><a href="#">Мебель</a></li>
+                  <li><a href="#">Парфюмерия и косметика</a></li>
+                  <li><a href="#">Одежда </a></li>
+                  <li><a href="#">Товары для дома</a></li>
+                  <li><a href="#">Спорт и туризм</a></li>
+                  <li><a href="#">Все для авто</a></li>
+                  <li><a href="#"><img style="height: 22px; margin-top: -5px; margin-right: 5px;" src="img/i17.png" alt="">услуги</a></li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+      <section class="promo">
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col-lg-3">
+                  <div class="row">
+                     <div class="col-lg-3">
+                        <img class="img-responsive" src="img/i7.png" alt="">
+                     </div>
+                     <div class="col-lg-9">
+                        <h3>Пройдите простую регистрацию на сайте</h3>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-3">
+                  <div class="row">
+                     <div class="col-lg-3">
+                        <img class="img-responsive" src="img/i8.png" alt="">
+                     </div>
+                     <div class="col-lg-9">
+                        <h3>Продавайте или покупайте товары</h3>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-3">
+                  <div class="row">
+                     <div class="col-lg-3">
+                        <img class="img-responsive" src="img/i11.png" alt="">
+                     </div>
+                     <div class="col-lg-9">
+                        <h3>Отслеживайте покупки и продажи в кабинете</h3>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-3">
+                  <div class="row">
+                     <div class="col-lg-3">
+                        <img class="img-responsive" src="img/i16.png" alt="">
+                     </div>
+                     <div class="col-lg-9">
+                      <h3><a href="">Войдите в кабинет <br> или пройдите регистрацию</a></h3>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+    
+
+
+     <div class="body-wrap">
+<ul class="list-inline breadcrumbs">
+   
+ <li><i class="glyphicon glyphicon-home"></i> <a href="#">500Sales.ru</a></li> >
+  <li><a href="#">Корпусная мебель</a></li> >
+   <li><a href="#">Мягкая мебель для спальни</a></li> >
+   <li><a href="#">Диваны и кресла</a></li> > 
+      <li>Цифровой фотоаппарат Fujifilm X-T10 + XF 18-55mm F2.8-4R Kit Silver (16471457)</li>
+
+</ul>
+
+
+
+
+<div class="row full-tov">
+
+<div class="col-lg-9">
+
+<div class="row">
+  <div class="col-lg-5 main-photo">
+
+   <img class="img-responsive" src="img/tt2.jpg" alt="">
+
+
+<div class="row">
+  <div class="col-lg-4">
+     <img class="img-responsive" src="img/tt1.jpg" alt="">
+
+</div>
+
+<div class="col-lg-4">
+     <img class="img-responsive" src="img/tt2.jpg" alt="">
+
+</div>
+
+<div class="col-lg-4">
+     <img class="img-responsive" src="img/tt3.jpg" alt="">
+
+</div>
+
+</div>
+
+
+  </div>
+
+    <div class="col-lg-7">
+    <h1>Цифровой фотоаппарат Fujifilm X-T10 + XF 18-55mm F2.8-4R Kit Silver (16471457)</h1>
+
+             <div class="link-search">
+                     <i class="glyphicon glyphicon-paperclip"></i> <a href="">Отложить товар  </a>
+                     <i class="glyphicon glyphicon-cog"></i> <a href="">Добавить в сравнение</a>
+                          <span class="nal"><i class="fa fa-check" aria-hidden="true"></i>  В наличии</span>
+
+                  </div>
+
+
+<div class="nal">
+
+</div>
+
+<div class="price-full">
+  13 999 руб.
+</div>
+
+<div class="mini-desc">
+ Samsung Galaxy S6 Edge - демонстрация того, что технология гибких дисплеев все активнее входит в нашу жизнь. В данном смартфоне были использованы наработки компании Samsung полученные во время создания другого флагманского смартфона - Galaxy Note Edge. 
+</div>
+<div class="rating">
+
+<h4>Рейтинг товара  /  <a href="">Написать отзыв</a></h4>
+  <i class="fa fa-star" aria-hidden="true"></i>
+  <i class="fa fa-star" aria-hidden="true"></i>
+  <i class="fa fa-star" aria-hidden="true"></i>
+    <i class="fa fa-star" aria-hidden="true"></i>
+
+  <i class="fa fa-star-half-o" aria-hidden="true"></i>
+
+
+
+</div>
+
+
+
+
+<div class="row btns-full">
+  <div class="col-lg-2">
+
+
+<div class="spinbox" data-initialize="spinbox" id="mySpinbox">
+  <input type="text" class="form-control spinbox-input">
+  <div class="spinbox-buttons btn-group btn-group-vertical">
+    <button type="button" class="btn btn-up spinbox-up btn-xs">
+      <span class="glyphicon glyphicon-chevron-up"></span><span class="sr-only">Increase</span>
+    </button>
+    <button type="button" class="btn btn-up spinbox-down btn-xs">
+      <span class="glyphicon glyphicon-chevron-down"></span><span class="sr-only">Decrease</span>
+    </button>
+  </div>
+</div>
+
+</div>
+<div class="col-lg-6">
+  <a class="btn btn-full btn-block" href=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i> Добавить в корзину</a>
+</div>
+
+<div class="col-lg-4">
+    <a class="btn btn-one btn-lg btn-block" href=""><i class="fa fa-hand-pointer-o" aria-hidden="true"></i> Купить в один клик</a>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+  </div>
+</div>
+
+
+<div>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Описание товара</a></li>
+    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Характеристики товара</a></li>
+    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Отзывы о товаре</a></li>
+ 
+  </ul>
+
+  <!-- Tab panes -->
+ <div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="home">
+    
+    <p>
+     Samsung Galaxy S6 Edge - демонстрация того, что технология гибких дисплеев все активнее входит в нашу жизнь. В данном смартфоне были использованы наработки компании Samsung полученные во время создания другого флагманского смартфона - Galaxy Note Edge. Основным отличием является изгиб матрицы с обеих сторон. Это позволило не только сделать смартфон интересным с точки зрения дизайна, но и расширить функциональность и улучшить эргономику устройства.  </p> 
+
+
+       <p>Другие параметры дисплея Galaxy S6 Edge так же на очень высоком уровне - это 5,1-дюймовая Super AMOLED-матрица с разрешением 2560х1440 точек и плотностью точек в 577 ppi. Для обеспечения высокой производительности при столько высоком разрешении пригодилось топовое на момент выхода смартфона решения Samsung Exynos Octa 7 7420 выполненному по технологии big.LITTLE и мощным графическим ядром Mali-T760, а использование 3 ГБ оперативной памяти позволяет не задумывать о занятой памяти и тяжести используемых приложений. Качество камеры для современного флагманского смартфона является одним из важнейших показателей и с этим у Samsung Galaxy S6 Edge полный порядок. Основная камера может похвастаться максимальным разрешением в 16 МП и диафрагмой f/1.9, данный показатель аналогичен и для фронтальной пятимегапискельной камеры.
+    </p>
+
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="profile">...</div>
+  <div role="tabpanel" class="tab-pane fade" id="messages">...</div>
+</div>
+
+</div>
+
+
+
+</div>
+
+
+<div class="col-lg-3">
+<div class="seller">
+  <img class="img-responsive" src="img/sl.png" alt="">
+
+<h4>
+<a href="">BRAIN - Магазин разумных покупок</a>
+  </h4>
+
+         <div class="social">
+                     <span><i class="fa fa-vk vk"></i></span>
+                     <span><i class="fa fa-facebook fb"></i></span>
+                     <span><i class="fa fa-instagram in"></i></span>
+                     <span><i class="fa fa-twitter tw"></i></span>
+                  </div>
+
+<div class="rating">
+
+<h4>Рейтинг продавца</a></h4>
+  <i class="fa fa-star" aria-hidden="true"></i>
+  <i class="fa fa-star" aria-hidden="true"></i>
+  <i class="fa fa-star" aria-hidden="true"></i>
+    <i class="fa fa-star" aria-hidden="true"></i>
+
+  <i class="fa fa-star-half-o" aria-hidden="true"></i>
+
+
+
+</div>
+<div class="reg">
+Дата регистрации : 24/11/2015
+</div>
+
+<div class="cont">
+ <p class="phone"><i class="glyphicon glyphicon-phone" aria-hidden="true"></i> +7 (495) 123 45 68</p>
+  <p><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="">отправить сообщение</a></p>
+</div>
+
+<a class="btn btn-orange btn-lg" href="">Все товары продавца</a>
+
+
+<div class="awards">
+<h4>Достижения продавца</h4>
+  <div class="row">
+    <div class="col-xs-3">
+     <img data-toggle="tooltip" data-placement="bottom" title="Актуальность цены и наличия" class="img-responsive" src="img/i18.png" alt=""> 
+    </div>
+        <div class="col-xs-3">
+<img data-toggle="tooltip" data-placement="bottom" title="Больше 100 продаж" class="img-responsive" src="img/i19.png" alt="">
+    </div>
+            <div class="col-xs-3">
+<img data-toggle="tooltip" data-placement="bottom" title="Первое место по качеству обслуживания" class="img-responsive" src="img/i20.png" alt="">
+    </div>
+            <div class="col-xs-3">
+<img data-toggle="tooltip" data-placement="bottom" title="Рекомендуем" class="img-responsive" src="img/i21.png" alt="">
+    </div>
+  </div>
+
+
+
+
+
+
+</div>
+
+
+
+
+</div>
+</div>
+</div>
+
+<hr>        <section class="top">
+            <div class="section-title">
+               <img src="img/i23.png" alt="">
+               <h4>Рекомендуемые товары</h4>
+               <p>Товары которые рекомендует наш сервис</p>
+            </div>
+            <div class="owl-carousel">
+               <div class="owl-item main-tov">
+                  <img src="img/t1.jpeg" alt="...">
+                  <a href="">
+                     <h2>Сушилка Ротор Дива СШ-007-06 5 поддонов</h2>
+                  </a>
+                  <div class="price-main">
+                     <span>3600 руб.</span> 3400 руб.
+                  </div>
+               </div>
+               <div class="owl-item main-tov">
+                  <img src="img/t2.jpeg" alt="...">
+                  <a href="">
+                     <h2>Сушилка Ротор Дива СШ-007-06 5 поддонов</h2>
+                  </a>
+                  <div class="price-main">
+                     <span>3600 руб.</span> 3400 руб.
+                  </div>
+               </div>
+               <div class="owl-item main-tov">
+                  <img src="img/t3.jpeg" alt="...">
+                  <a href="">
+                     <h2>Сушилка Ротор Дива СШ-007-06 5 поддонов</h2>
+                  </a>
+                  <div class="price-main">
+                     <span>3600 руб.</span> 3400 руб.
+                  </div>
+               </div>
+               <div class="owl-item main-tov">
+                  <img src="img/t4.jpeg" alt="...">
+                  <a href="">
+                     <h2>Сушилка Ротор Дива СШ-007-06 5 поддонов</h2>
+                  </a>
+                  <div class="price-main">
+                     <span>3600 руб.</span> 3400 руб.
+                  </div>
+               </div>
+               <div class="owl-item main-tov">
+                  <img src="img/t5.jpeg" alt="...">
+                  <a href="">
+                     <h2>Сушилка Ротор Дива СШ-007-06 5 поддонов</h2>
+                  </a>
+                  <div class="price-main">
+                     <span>3600 руб.</span> 3400 руб.
+                  </div>
+               </div>
+               <div class="owl-item main-tov">
+                  <img src="img/t6.jpeg" alt="...">
+                  <a href="">
+                     <h2>Сушилка Ротор Дива СШ-007-06 5 поддонов</h2>
+                  </a>
+                  <div class="price-main">
+                     <span>3600 руб.</span> 3400 руб.
+                  </div>
+               </div>
+               <div class="owl-item main-tov">
+                  <img src="img/t7.jpeg" alt="...">
+                  <a href="">
+                     <h2>Сушилка Ротор Дива СШ-007-06 5 поддонов</h2>
+                  </a>
+                  <div class="price-main">
+                     <span>3600 руб.</span> 3400 руб.
+                  </div>
+               </div>
+               <div class="owl-item main-tov">
+                  <img src="img/t8.jpeg" alt="...">
+                  <a href="">
+                     <h2>Сушилка Ротор Дива СШ-007-06 5 поддонов</h2>
+                  </a>
+                  <div class="price-main">
+                     <span>3600 руб.</span> 3400 руб.
+                  </div>
+               </div>
+            </div>
+         </section>
+        <section class="top">
+            <div class="section-title">
+               <img src="img/i22.png" alt="">
+               <h4>Вы смотрели</h4>
+               <p>Мы сохранили ваши просмотры для вашего удобства</p>
+            </div>
+            <div class="owl-carousel">
+               <div class="owl-item main-tov">
+                  <img src="img/t1.jpeg" alt="...">
+                  <a href="">
+                     <h2>Сушилка Ротор Дива СШ-007-06 5 поддонов</h2>
+                  </a>
+                  <div class="price-main">
+                     <span>3600 руб.</span> 3400 руб.
+                  </div>
+               </div>
+               <div class="owl-item main-tov">
+                  <img src="img/t2.jpeg" alt="...">
+                  <a href="">
+                     <h2>Сушилка Ротор Дива СШ-007-06 5 поддонов</h2>
+                  </a>
+                  <div class="price-main">
+                     <span>3600 руб.</span> 3400 руб.
+                  </div>
+               </div>
+               <div class="owl-item main-tov">
+                  <img src="img/t3.jpeg" alt="...">
+                  <a href="">
+                     <h2>Сушилка Ротор Дива СШ-007-06 5 поддонов</h2>
+                  </a>
+                  <div class="price-main">
+                     <span>3600 руб.</span> 3400 руб.
+                  </div>
+               </div>
+               <div class="owl-item main-tov">
+                  <img src="img/t4.jpeg" alt="...">
+                  <a href="">
+                     <h2>Сушилка Ротор Дива СШ-007-06 5 поддонов</h2>
+                  </a>
+                  <div class="price-main">
+                     <span>3600 руб.</span> 3400 руб.
+                  </div>
+               </div>
+               <div class="owl-item main-tov">
+                  <img src="img/t5.jpeg" alt="...">
+                  <a href="">
+                     <h2>Сушилка Ротор Дива СШ-007-06 5 поддонов</h2>
+                  </a>
+                  <div class="price-main">
+                     <span>3600 руб.</span> 3400 руб.
+                  </div>
+               </div>
+               <div class="owl-item main-tov">
+                  <img src="img/t6.jpeg" alt="...">
+                  <a href="">
+                     <h2>Сушилка Ротор Дива СШ-007-06 5 поддонов</h2>
+                  </a>
+                  <div class="price-main">
+                     <span>3600 руб.</span> 3400 руб.
+                  </div>
+               </div>
+               <div class="owl-item main-tov">
+                  <img src="img/t7.jpeg" alt="...">
+                  <a href="">
+                     <h2>Сушилка Ротор Дива СШ-007-06 5 поддонов</h2>
+                  </a>
+                  <div class="price-main">
+                     <span>3600 руб.</span> 3400 руб.
+                  </div>
+               </div>
+               <div class="owl-item main-tov">
+                  <img src="img/t8.jpeg" alt="...">
+                  <a href="">
+                     <h2>Сушилка Ротор Дива СШ-007-06 5 поддонов</h2>
+                  </a>
+                  <div class="price-main">
+                     <span>3600 руб.</span> 3400 руб.
+                  </div>
+               </div>
+            </div>
+         </section>
+
+
+      </div>
+
+
+
+
+      <section class="mail">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-1">
+                  <img class="img-responsive" src="img/i13.png" alt="">
+               </div>
+               <div class="col-lg-4">
+                  <h4>Подпишитесь</h4>
+                  <h6>Рассылаем только значимую информацию</h6>
+               </div>
+               <div class="col-lg-5">
+                  <div class="inner-addon left-addon">
+                     <i class="glyphicon glyphicon-envelope"></i>
+                     <input type="text" placeholder="Укажите ваш E-mail" class="form-control" p/>
+                  </div>
+               </div>
+               <div class="col-lg-2">
+                  <a class="btn btn-subscr btn-block" href="">Подписаться</a>
+               </div>
+            </div>
+         </div>
+      </section>
+      <footer>
+         <div class="container-fluid">
+            <div class="text-center">
+               <div class="logo">
+                  <div class="row">
+                     <div class="col-xs-3">
+                        <img class="img-responsive" src="img/logo.svg" alt="">
+                     </div>
+                     <div class="col-xs-9">
+                        <h2>500sales.ru</h2>
+                        <p>все российский центр распродаж.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-lg-4 about">
+                  <h4>О компании</h4>
+                  <p>Оцениваем несколькими способами: Яндекс.Метрика, Google Analytics, собственная система статистики на сайте, которая позволяет выяснить эффективность того или иного канала, выраженную в количестве заказов.</p>
+                  <ul class="list-inline">
+                     <li><a href="">Доставка и оплата товаров</a></li>
+                     <li><a href="">Пользовательское соглашение</a></li>
+                     <li><a href="">Сотрудничество</a></li>
+                     <li><a href="">Реклама на сайте</a></li>
+                     <li><a href="">Контакты</a></li>
+                  </ul>
+                  <div class="social">
+                     <span><i class="fa fa-vk vk"></i></span>
+                     <span><i class="fa fa-facebook fb"></i></span>
+                     <span><i class="fa fa-instagram in"></i></span>
+                     <span><i class="fa fa-twitter tw"></i></span>
+                  </div>
+               </div>
+               <div class="col-lg-2 links">
+                  <h4>Магазинам</h4>
+                  <ul class="list-unstyled">
+                     <li><a href="">Добавить магазин</a></li>
+                     <li><a href="">Вопросы и ответы</a></li>
+                     <li><a href="">Договор оферты</a></li>
+                     <li><a href="">Как продавать</a></li>
+                     <li><a href="">Контакты</a></li>
+                  </ul>
+               </div>
+               <div class="col-lg-2 links">
+                  <h4>Партнерам</h4>
+                  <ul class="list-unstyled">
+                     <li><a href="">Добавить магазин</a></li>
+                     <li><a href="">Вопросы и ответы</a></li>
+                     <li><a href="">Договор оферты</a></li>
+                     <li><a href="">Как продавать</a></li>
+                     <li><a href="">Контакты</a></li>
+                  </ul>
+               </div>
+               <div class="col-lg-2 links">
+                  <h4>Партнерам</h4>
+                  <ul class="list-unstyled">
+                     <li><a href="">Добавить магазин</a></li>
+                     <li><a href="">Вопросы и ответы</a></li>
+                     <li><a href="">Договор оферты</a></li>
+                     <li><a href="">Как продавать</a></li>
+                     <li><a href="">Контакты</a></li>
+                  </ul>
+               </div>
+               <div class="col-lg-2 links">
+                  <h4>Магазинам</h4>
+                  <ul class="list-unstyled">
+                     <li><a href="">Добавить магазин</a></li>
+                     <li><a href="">Вопросы и ответы</a></li>
+                     <li><a href="">Договор оферты</a></li>
+                     <li><a href="">Как продавать</a></li>
+                     <li><a href="">Контакты</a></li>
+                  </ul>
+               </div>
+               <div class="col-lg-2">
+               </div>
+            </div>
+         </div>
+      </footer>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/owl.carousel.js"></script>
+      <script src="js/main.js"></script>
+      <script src="js/fuelux.min.js"></script>
+
+   </body>
+</html>

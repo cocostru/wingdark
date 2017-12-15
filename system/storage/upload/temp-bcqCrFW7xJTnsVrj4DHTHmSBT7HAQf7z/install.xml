@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+	<code>Avail</code>
+	<name>Avail</name>
+	<version>2.1</version>
+	<author>Sitemix</author>
+	<link>http://myopencart.club/</link>
+	
+	<file path="catalog/controller/product/product.php">
+		<operation>
+			<search><![CDATA[$this->load->language('product/product');]]></search>
+			<add position="after" index="1"><![CDATA[$this->load->model('setting/setting');]]></add>
+		</operation>
+		<operation>
+			<search><![CDATA[$data['text_select'] = $this->language->get('text_select');]]></search>
+			<add position="after"><![CDATA[$data['avail_status'] = $this->config->get('avail_status');
+										$data['quantity'] = $product_info['quantity'];
+										$data['language_id'] = (int)$this->config->get('config_language_id');	
+										$avail_text = $this->config->get('avail_text');										
+										$data['text_button_avail'] = $avail_text[$data['language_id']]['button_avail']?$avail_text[$data['language_id']]['button_avail']:$this->language->get('notify_me');
+										$data['avail_button_cart_productpage'] = $this->config->get('avail_button_cart_productpage');//avail									
+										$data['avail_options_status'] = $this->config->get('avail_options_status')?$this->config->get('avail_options_status'):'0';//avail	
+										$data['change_buttom'] = $this->config->get('avail_status')?$this->config->get('avail_status'):'0';
+										$data['avail_default'] = $this->config->get('avail_default');
+			]]></add>
+		</operation>
+		<operation>
+			<search><![CDATA[$data['products'][] = array(]]></search>
+			<add position="after"><![CDATA['quantity'	  => $result['quantity'],]]></add>
+		</operation>
+		
+		<operation>
+		<search><![CDATA[if (!$option_value['subtract'] || ($option_value['quantity'] > 0)) {]]></search>
+			<add position="replace"><![CDATA[if (!$option_value['subtract'] || ($this->config->get('avail_status')?$option_value['quantity'] >= 0 : $option_value['quantity'] > 0 )) {]]></add>
+		</operation>
+	</file>
+	<file path="catalog/view/theme/*/template/product/product.tpl">     
+		<operation>
+			<search><![CDATA[<?php echo $header; ?>]]></search>
+			<add position="after"><![CDATA[<div  class="aval-product-page-quantity hidden"><?php echo $quantity;?></div><div class="aval-product-page-id hidden"><?php echo $product_id;?></div>]]></add>
+		</operation>
+		<operation>
+			<search><![CDATA[ <div class="product-thumb]]></search>
+			<add position="after"><![CDATA[<div class="aval-product-quantity hidden"><?php echo $product['quantity'];?></div><div class="aval-product-id hidden"><?php echo $product['product_id'];?></div>]]></add>
+		</operation>
+	</file>	
+	<file path="catalog/controller/extension/module/{bestseller,featured,latest,special}.php">
+		<operation>
+			<search><![CDATA['product_id'  => $product_info['product_id'],]]></search>
+			<add position="after"><![CDATA['quantity'	  => $product_info['quantity'],]]></add>
+		</operation>
+	</file>
+	<file path="catalog/view/theme/*/template/extension/module/{bestseller,featured,latest,special}.tpl">     
+		<operation>
+			<search><![CDATA[ <div class="product-thumb]]></search>
+			<add position="after"><![CDATA[<div class="aval-product-quantity hidden"><?php echo $product['quantity'];?></div><div class="aval-product-id hidden"><?php echo $product['product_id'];?></div>]]></add>
+		</operation>	
+	</file>	
+	
+	<file path="catalog/controller/product/{category,manufacturer,search,special}.php">
+		<operation>
+			<search><![CDATA['product_id'  => $result['product_id'],]]></search>
+			<add position="after"><![CDATA['quantity'	  => $result['quantity'],]]></add>
+		</operation>
+	</file>
+	<file path="catalog/view/theme/*/template/product/{category,manufacturer,search,special}.tpl">     
+		<operation>
+			<search><![CDATA[<div class="product-thumb]]></search>
+			<add position="after"><![CDATA[<div class="aval-product-quantity hidden"><?php echo $product['quantity'];?></div><div class="aval-product-id hidden"><?php echo $product['product_id'];?></div>]]></add>
+		</operation>	
+	</file>	
+	
+	
+	<file path="catalog/view/theme/*/template/common/footer.tpl">
+		<operation>
+			<search><![CDATA[<footer>]]></search>
+			<add position="before"><![CDATA[<div id="edit-modal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+            <div class="modal-content">
+			
+			    </div>
+        </div>	
+		</div>]]></add>
+		</operation>
+	</file>	
+	<file path="admin/controller/catalog/product.php">
+		<operation>
+			<search><![CDATA[$this->model_catalog_product->editProduct($this->request->get['product_id'], $this->request->post);]]></search>
+			<add position="after"><![CDATA[if ( $this->config->get('avail_config_product_edit') == '1' ) {
+				if ( $this->request->post['quantity'] > 0 ) {
+					$this->load->model('extension/module/avail');
+					$this->model_extension_module_avail->notifyByProductId($this->request->get['product_id']);
+				}
+				
+			}]]></add>
+		</operation>
+	</file>
+	
+	<!-- <file path="admin/view/template/common/dashboard.tpl">
+		<operation>
+			<search><![CDATA[<div class="col-lg-3 col-md-3 col-sm-6"><?php echo $order; ?></div>]]></search>
+			<add position="before"><![CDATA[<?php echo !empty($avail)?'<div class="col-lg-3 col-md-3 col-sm-6">'.$avail.'</div>':''; ?>]]></add>
+		</operation>
+	</file>
+	<file path="admin/controller/common/dashboard.php">
+		<operation>
+			<search><![CDATA[$data['order'] = $this->load->controller('dashboard/order');]]></search>
+			<add position="before"><![CDATA[if($this->config->get('avail_status')){$data['avail'] = $this->load->controller('dashboard/avail');}]]></add>
+		</operation>
+	</file> -->
+</modification>
